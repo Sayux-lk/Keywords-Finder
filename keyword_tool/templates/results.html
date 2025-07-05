@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyword Ideas for {{ topic }}</title>
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 2em auto;
+            padding: 2em;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #1a202c;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 1.5em;
+        }
+        li {
+            padding: 12px 15px;
+            border: 1px solid #e2e8f0;
+            border-bottom: none;
+        }
+        li:first-child {
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+        }
+        li:last-child {
+            border-bottom: 1px solid #e2e8f0;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+        }
+        li:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        a {
+            color: #3182ce;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 1.5em;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .no-results { 
+            font-weight: 500; 
+            margin-top: 1em; 
+            color: #e53e3e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Blog Post Ideas for "<b>{{ topic }}</b>"</h1>
+
+        {% if keywords %}
+            <p>Here are some related keyword ideas you can use for blog posts and content.</p>
+            <ul>
+                {% for keyword in keywords %}
+                <li>{{ keyword }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-results">No keyword ideas were found for this topic. Please try again with a broader topic.</p>
+        {% endif %}
+
+        <br>
+        <a href="/">Search another topic</a>
+    </div>
+</body>
+</html>
